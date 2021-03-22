@@ -1,6 +1,7 @@
 package org.zerock.guestbook.entity;
 
 import com.mysema.commons.lang.Assert;
+import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
@@ -16,7 +17,8 @@ import lombok.ToString;
 
 @Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+//@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @Table(name = "guest_book")
 public class GuestBook extends BaseEntity{
 

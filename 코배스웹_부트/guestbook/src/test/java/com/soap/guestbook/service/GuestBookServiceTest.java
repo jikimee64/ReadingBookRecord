@@ -1,4 +1,4 @@
-package org.zerock.guestbook.service;
+package com.soap.guestbook.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.*;
@@ -8,13 +8,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.zerock.guestbook.dto.GuestBookDTO;
-import org.zerock.guestbook.dto.GuestBookDTO.Request.Modify;
-import org.zerock.guestbook.dto.GuestBookDTO.Request.Save;
-import org.zerock.guestbook.dto.GuestBookDTO.Response.Read;
-import org.zerock.guestbook.dto.PageRequestDTO;
-import org.zerock.guestbook.dto.PageResultDTO;
-import org.zerock.guestbook.entity.GuestBook;
+import com.soap.guestbook.dto.GuestBookDTO;
+import com.soap.guestbook.dto.GuestBookDTO.Request.Modify;
+import com.soap.guestbook.dto.GuestBookDTO.Request.Save;
+import com.soap.guestbook.dto.GuestBookDTO.Response.Read;
+import com.soap.guestbook.dto.PageRequestDTO;
+import com.soap.guestbook.dto.PageResultDTO;
+import com.soap.guestbook.entity.GuestBook;
 
 @SpringBootTest
 class GuestBookServiceTest {

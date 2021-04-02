@@ -1,6 +1,5 @@
-package org.zerock.guestbook.controller;
+package com.soap.guestbook.controller;
 
-import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -10,10 +9,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.zerock.guestbook.dto.GuestBookDTO;
-import org.zerock.guestbook.dto.PageRequestDTO;
-import org.zerock.guestbook.entity.GuestBook;
-import org.zerock.guestbook.service.GuestBookService;
+import com.soap.guestbook.dto.GuestBookDTO;
+import com.soap.guestbook.dto.PageRequestDTO;
+import com.soap.guestbook.service.GuestBookService;
 
 @Slf4j
 @Controller

@@ -1,7 +1,7 @@
-package org.zerock.guestbook.repository;
+package com.soap.guestbook.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.zerock.guestbook.entity.GuestBook;
+import com.soap.guestbook.entity.GuestBook;
 
 public interface GuestbookRepository extends JpaRepository<GuestBook, Long>,
     GuestbookRepositoryCustom {

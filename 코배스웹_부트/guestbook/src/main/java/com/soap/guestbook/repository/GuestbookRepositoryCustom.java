@@ -1,9 +1,9 @@
-package org.zerock.guestbook.repository;
+package com.soap.guestbook.repository;
 
+import com.soap.guestbook.entity.GuestBook;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.zerock.guestbook.dto.PageRequestDTO;
-import org.zerock.guestbook.entity.GuestBook;
+import com.soap.guestbook.dto.PageRequestDTO;
 
 public interface GuestbookRepositoryCustom {
    // List<GuestBookDto> search(GuestBookSearchCondition condition);

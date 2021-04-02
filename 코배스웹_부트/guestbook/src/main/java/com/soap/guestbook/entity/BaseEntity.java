@@ -1,4 +1,4 @@
-package org.zerock.guestbook.entity;
+package com.soap.guestbook.entity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

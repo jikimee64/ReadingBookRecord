@@ -1,12 +1,10 @@
-package org.zerock.guestbook.dto;
+package com.soap.guestbook.dto;
 
 import java.time.LocalDateTime;
-import jdk.jfr.DataAmount;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.zerock.guestbook.entity.GuestBook;
+import com.soap.guestbook.entity.GuestBook;
 
 public class GuestBookDTO {
     public static class Request {

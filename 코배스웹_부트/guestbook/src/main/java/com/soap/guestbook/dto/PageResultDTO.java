@@ -1,4 +1,4 @@
-package org.zerock.guestbook.dto;
+package com.soap.guestbook.dto;
 
 import java.util.List;
 import java.util.function.Function;

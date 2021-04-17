@@ -2,15 +2,13 @@ package org.zerock.board.repository;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.zerock.board.dto.BoardDto;
+import org.zerock.board.dto.BoardDTO;
 import org.zerock.board.entity.Board;
 import org.zerock.board.entity.Member;
 import java.util.stream.IntStream;
@@ -71,7 +69,7 @@ class BoardRepositoryTest {
     @DisplayName("게시글 + 회원 + 댓글 / 목록페이지")
     void testWithReplyCount(){
         Pageable pageable = PageRequest.of(0, 10, Sort.by("id").descending());
-        Page<BoardDto> result = boardRepository.getBoardWithReplyCount(pageable);
+        Page<Object[]> result = boardRepository.getBoardWithReplyCount(pageable);
         result.forEach( row -> {
             System.out.println(row.toString());
         });
@@ -80,7 +78,7 @@ class BoardRepositoryTest {
     @Test
     @DisplayName("게시글 + 회원 + 댓글 / 상세페이지")
     void testRead3(){
-        BoardDto result = boardRepository.getBoardByBno(100L);
+        BoardDTO.Response.Detail result = boardRepository.getBoardByBno(100L);
         System.out.println(result.toString());
     }
 

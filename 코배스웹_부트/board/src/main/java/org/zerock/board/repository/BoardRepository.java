@@ -6,7 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.zerock.board.dto.BoardDto;
+import org.zerock.board.dto.BoardDTO;
 import org.zerock.board.entity.Board;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -25,20 +25,22 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
      * countQuery : 조회 건수에 대한 쿼리문
      * Object -> DTO 이용
      */
-    @Query(value = "select new org.zerock.board.dto.BoardDto(b.id, b.regDate, b.title, w.name, w.email, count(r))" +
+    //@Query(value = "select new org.zerock.board.dto.BoardDTO.Response.List(b.id, b.regDate, b.title, m.name, m.email, count(r))" +
+      @Query(value = "SELECT b, m, count(r)" +
         " FROM Board b " +
-        " LEFT JOIN b.member w " +
+        " LEFT JOIN b.member m " +
         " LEFT JOIN Reply r ON r.board = b " +
         " GROUP BY b",
         countQuery = "SELECT count(b) FROM Board b")
-    Page<BoardDto> getBoardWithReplyCount(Pageable pageable);
+    Page<Object[]> getBoardWithReplyCount(Pageable pageable);
 
     // Object -> DTO 이용
-    @Query(value = "select new org.zerock.board.dto.BoardDto(b.id, b.regDate, b.modDate, b.title, b.content, w.name, w.email, count(r))" +
-        " FROM Board b LEFT JOIN b.member w " +
+   // @Query(value = "select new org.zerock.board.dto.BoardDTO.Response.Detail(b.id, b.regDate, b.modDate, b.title, b.content, w.name, w.email, count(r))" +\
+    @Query(value = "SELECT b, m, count(r)" +
+        " FROM Board b LEFT JOIN b.member m " +
         " LEFT OUTER JOIN Reply r ON r.board = b" +
         " WHERE b.id = :id")
-    BoardDto getBoardByBno(@Param("id") Long id);
+    BoardDTO.Response.Detail getBoardByBno(@Param("id") Long id);
 
 
 }

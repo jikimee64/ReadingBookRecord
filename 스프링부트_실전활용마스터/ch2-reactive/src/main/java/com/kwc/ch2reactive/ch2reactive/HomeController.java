@@ -1,25 +1,22 @@
 package com.kwc.ch2reactive.ch2reactive;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.reactive.result.view.Rendering;
 import reactor.core.publisher.Mono;
 
 @Controller
+@RequiredArgsConstructor
 public class HomeController {
 
     private ItemRepository itemRepository;
     private CartRepository cartRepository;
     private CartService cartService;
-
-    public HomeController(ItemRepository itemRepository,
-        CartRepository cartRepository, CartService cartService) {
-        this.itemRepository = itemRepository;
-        this.cartRepository = cartRepository;
-        this.cartService = cartService;
-    }
+    private InventoryService inventoryService;
 
     /**
      * Mono<Rendering> : 뷰/애트리뷰트를 포함하는 웹플럭스 컨테이너
@@ -28,8 +25,8 @@ public class HomeController {
     @GetMapping
     Mono<Rendering> home(){
         return Mono.just(Rendering.view("home.html")
-        .modelAttribute("items", this.itemRepository.findAll()) //Flux<Item> 반환
-        .modelAttribute("cart", this.cartRepository.findById("My Cart") //Mono<Cart> 반환
+        .modelAttribute("items", itemRepository.findAll()) //Flux<Item> 반환
+        .modelAttribute("cart", cartRepository.findById("My Cart") //Mono<Cart> 반환
         .defaultIfEmpty(new Cart("My Cart"))) //전형적인 리액터 사용법
         .build());
     }
@@ -67,5 +64,18 @@ public class HomeController {
 //                    }))
 //            .flatMap(cart -> this.cartRepository.save(cart))
 //            .thenReturn("redirect:/");
+    }
+
+    @GetMapping("/search")
+    Mono<Rendering> search(
+        @RequestParam(required = false) String name,
+        @RequestParam(required = false) String description,
+        @RequestParam boolean useAnd) {
+        return Mono.just(Rendering.view("home.html")
+            .modelAttribute("results",
+                // 지연방식으로 실제 구독을 해야 실제 검색이 수행된다.
+                inventoryService.searchByExample(name, description, useAnd))
+            .build()
+        );
     }
 }

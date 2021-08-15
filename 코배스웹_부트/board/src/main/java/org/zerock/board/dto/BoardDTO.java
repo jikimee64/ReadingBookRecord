@@ -52,10 +52,10 @@ public class BoardDTO {
             private String title;
             private String name;  // 작성자의 이름
             private String email; // 작성자의 이메일(id)
-            private int countReply; // 해당 게시글의 댓글 수
+            private Long countReply; // 해당 게시글의 댓글 수
 
             public List(Long id, LocalDateTime regDate, String title, String name, String email,
-                int countReply) {
+                Long countReply) {
                 this.id = id;
                 this.regDate = regDate;
                 this.title = title;
@@ -71,7 +71,7 @@ public class BoardDTO {
                     .title(board.getTitle())
                     .name(member.getName())
                     .email(member.getEmail())
-                    .countReply(replyCount.intValue()) // long -> int
+                    .countReply(replyCount) // long -> int
                     .build();
             }
         }
@@ -88,10 +88,10 @@ public class BoardDTO {
             private String content;
             private String name;  // 작성자의 이름
             private String email; // 작성자의 이메일(id)
-            private int countReply; // 해당 게시글의 댓글 수
+            private Long countReply; // 해당 게시글의 댓글 수
 
             public Detail(Long id, LocalDateTime regDate, LocalDateTime modDate, String title,
-                String content, String name, String email, int countReply) {
+                String content, String name, String email, Long countReply) {
                 this.id = id;
                 this.regDate = regDate;
                 this.modDate = modDate;
@@ -100,6 +100,20 @@ public class BoardDTO {
                 this.name = name;
                 this.email = email;
                 this.countReply = countReply;
+            }
+
+            public static Board board(Detail detail){
+                return Board.builder()
+                    .title(detail.getTitle())
+                    .content(detail.getContent())
+                    .build();
+            }
+
+            public static Member member(Detail detail){
+                return Member.builder()
+                    .email(detail.getEmail())
+                    .name(detail.getName())
+                    .build();
             }
 
             public static Detail entityToDTO(Board board, Member member, Long replyCount) {
@@ -111,7 +125,7 @@ public class BoardDTO {
                     .modDate(board.getModDate())
                     .email(member.getEmail())
                     .name(member.getName())
-                    .countReply(replyCount.intValue()) // long -> int
+                    .countReply(replyCount)
                     .build();
             }
 

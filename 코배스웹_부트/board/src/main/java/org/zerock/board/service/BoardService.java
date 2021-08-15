@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.zerock.board.dto.BoardDTO;
 import org.zerock.board.dto.BoardDTO.Request.Save;
+import org.zerock.board.dto.BoardDTO.Response.Detail;
 import org.zerock.board.dto.BoardDTO.Response.List;
 import org.zerock.board.dto.PageRequestDTO;
 import org.zerock.board.dto.PageResultDTO;
@@ -55,9 +56,10 @@ public class BoardService {
 
     }
 
-
-
-
+    public BoardDTO.Response.Detail get(Long bno){
+        Detail detail = boardRepository.getBoardByBno(bno);
+        return Detail.entityToDTO(Detail.board(detail), Detail.member(detail), detail.getCountReply());
+    }
 
 
 

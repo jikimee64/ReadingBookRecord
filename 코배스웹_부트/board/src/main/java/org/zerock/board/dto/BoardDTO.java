@@ -38,6 +38,18 @@ public class BoardDTO {
 
             }
         }
+
+        @Data
+        @Builder
+        @AllArgsConstructor
+        @NoArgsConstructor
+        public static class Modify {
+
+            private Long id;
+            private String title;
+            private String content;
+
+        }
     }
 
     public static class Response {

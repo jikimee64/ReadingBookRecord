@@ -16,6 +16,7 @@ import org.zerock.board.entity.Board;
 import org.zerock.board.entity.Member;
 import org.zerock.board.repository.BoardRepository;
 import org.zerock.board.repository.MemberRepository;
+import org.zerock.board.repository.ReplyRepository;
 
 @Transactional(readOnly = true)
 @Service
@@ -24,11 +25,13 @@ public class BoardService {
 
     private final BoardRepository boardRepository;
     private final MemberRepository memberRepository;
+    private final ReplyRepository replyRepository;
 
     public BoardService(BoardRepository boardRepository,
-        MemberRepository memberRepository) {
+        MemberRepository memberRepository, ReplyRepository replyRepository) {
         this.boardRepository = boardRepository;
         this.memberRepository = memberRepository;
+        this.replyRepository = replyRepository;
     }
 
     @Transactional
@@ -62,5 +65,21 @@ public class BoardService {
     }
 
 
+    @Transactional
+    public void removeWithReplies(Long id){
+        replyRepository.deleteByBoardId(id);
+        boardRepository.deleteById(id);
+    }
+
+    public void modify(BoardDTO.Request.Modify dto){
+        //getOne() : 필요한 순간까지 로딩을 지연
+        Board board = boardRepository.getOne(dto.getId());
+        if(board != null){
+            board.changeTitle(dto.getTitle());
+            board.changeContent(dto.getContent());
+
+            boardRepository.save(board);
+        }
+    }
 
 }

@@ -5,6 +5,11 @@ import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * 데이터 중심 설계시 생각하는 것
+ * 1. 이 객체가 어떤 데이터를 포함해야 하는가?
+ * 2. 이 객체가 데이터에 대해 수행해야하는 오퍼레이션이 무엇인가?
+ */
 @Getter
 @Setter
 public class Screening {

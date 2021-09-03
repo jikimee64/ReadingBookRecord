@@ -1,4 +1,4 @@
-package com.soap.objects.chapter4;
+package com.soap.objects.chapter4.datacenter;
 
 public enum MovieType {
     AMOUNT_DISCOUNT, //금액 할인 정책

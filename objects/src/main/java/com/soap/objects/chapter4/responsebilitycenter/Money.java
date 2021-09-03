@@ -1,4 +1,4 @@
-package com.soap.objects.chapter4;
+package com.soap.objects.chapter4.responsebilitycenter;
 
 import java.math.BigDecimal;
 

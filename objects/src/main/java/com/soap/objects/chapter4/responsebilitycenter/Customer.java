@@ -1,4 +1,4 @@
-package com.soap.objects.chapter4;
+package com.soap.objects.chapter4.responsebilitycenter;
 
 public class Customer {
     private String name;

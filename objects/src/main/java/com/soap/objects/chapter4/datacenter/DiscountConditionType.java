@@ -1,4 +1,4 @@
-package com.soap.objects.chapter4;
+package com.soap.objects.chapter4.datacenter;
 
 public enum DiscountConditionType {
     SEQUENCE, //순번 조건

@@ -1,6 +1,4 @@
-package com.soap.objects.chapter4;
-
-import com.soap.objects.chapter4.DiscountCondition;
+package com.soap.objects.chapter4.datacenter;
 
 public class ReservationAgency {
 
@@ -8,7 +6,7 @@ public class ReservationAgency {
         Movie movie = screening.getMovie();
 
         boolean discountable = false;
-        for (DiscountCondition condition : movie.getDiscountConditionList()) {
+        for (DiscountCondition condition : movie.getDiscountConditions()) {
             if (condition.getType() == DiscountConditionType.PERIOD) {
                 discountable =
                     screening.getWhenScreened().getDayOfWeek().equals(condition.getDayOfWeek()) &&

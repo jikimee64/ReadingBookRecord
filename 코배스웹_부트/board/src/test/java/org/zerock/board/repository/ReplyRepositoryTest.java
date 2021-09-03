@@ -1,5 +1,6 @@
 package org.zerock.board.repository;
 
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.springframework.transaction.annotation.Transactional;
 import org.zerock.board.entity.Board;
@@ -39,6 +40,17 @@ class ReplyRepositoryTest {
             replyRepository.save(reply);
 
         });
+    }
+
+    @Test
+    public void testListByBoard(){
+        Board board = boardRepository.findById(1L).get();
+
+        List<Reply> replylist = replyRepository.getRepliesByBoardOrderById(board);
+
+        for (Reply reply : replylist) {
+            System.out.println(reply);
+        }
     }
 
 }

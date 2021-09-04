@@ -23,4 +23,25 @@ public class DiscountCondition {
     private DayOfWeek dayOfWeek;
     private LocalTime startTime;
     private LocalTime endTime;
+
+    //1번 ==============================(적절한 위치)
+    public boolean isDiscountable(Screening screening) {
+        if (type == DiscountConditionType.PERIOD) {
+            return isSatisfiedByPeriod(screening);
+        }
+        return isSatisfiedBySequence(screening);
+
+    }
+
+    private boolean isSatisfiedByPeriod(Screening screening) {
+        return screening.getWhenScreened().getDayOfWeek().equals(dayOfWeek) &&
+            startTime
+                .compareTo(screening.getWhenScreened().toLocalTime()) <= 0 &&
+            endTime.compareTo(screening.getWhenScreened().toLocalTime())
+                >= 0;
+    }
+
+    private boolean isSatisfiedBySequence(Screening screening) {
+        return sequence == screening.getSequence();
+    }
 }

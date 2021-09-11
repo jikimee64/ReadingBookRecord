@@ -14,28 +14,28 @@ import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 @Repository
 public interface ItemRepository extends ReactiveCrudRepository<Item, String>, ReactiveQueryByExampleExecutor<Item> {
     //고객이 입력한 검색어가 이름에 포함된 상품을 반환
-    Flux<Item> findByNameContaining(String partialName);
-    // end::code[]
-
-    // tag::code-2[]
-//	@Query("{ 'name' : ?0, 'age' : ?1 }")
-//	Flux<Item> findItemsForCustomerMonthlyReport(String name, int age);
+//    Flux<Item> findByNameContaining(String partialName);
+//    // end::code[]
 //
-//	@Query(sort = "{ 'age' : -1 }")
-//	Flux<Item> findSortedStuffForWeeklyReport();
-    // end::code-2[]
-
-    // tag::code-3[]
-    // search by name
-    Flux<Item> findByNameContainingIgnoreCase(String partialName);
-
-    // search by description
-    Flux<Item> findByDescriptionContainingIgnoreCase(String partialName);
-
-    // search by name AND description
-    Flux<Item> findByNameContainingAndDescriptionContainingAllIgnoreCase(String partialName, String partialDesc);
-
-    // search by name OR description
-    Flux<Item> findByNameContainingOrDescriptionContainingAllIgnoreCase(String partialName, String partialDesc);
-    // end::code-3[]
+//    // tag::code-2[]
+////	@Query("{ 'name' : ?0, 'age' : ?1 }")
+////	Flux<Item> findItemsForCustomerMonthlyReport(String name, int age);
+////
+////	@Query(sort = "{ 'age' : -1 }")
+////	Flux<Item> findSortedStuffForWeeklyReport();
+//    // end::code-2[]
+//
+//    // tag::code-3[]
+//    // search by name
+//    Flux<Item> findByNameContainingIgnoreCase(String partialName);
+//
+//    // search by description
+//    Flux<Item> findByDescriptionContainingIgnoreCase(String partialName);
+//
+//    // search by name AND description
+//    Flux<Item> findByNameContainingAndDescriptionContainingAllIgnoreCase(String partialName, String partialDesc);
+//
+//    // search by name OR description
+//    Flux<Item> findByNameContainingOrDescriptionContainingAllIgnoreCase(String partialName, String partialDesc);
+//    // end::code-3[]
 }

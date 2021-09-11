@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.reactive.result.view.Rendering;
 import reactor.core.publisher.Mono;
 
@@ -24,7 +23,7 @@ public class HomeController {
     @GetMapping
     Mono<Rendering> home(){
         return Mono.just(Rendering.view("home.html")
-            .modelAttribute("items", this.inventoryService.getInventory())
+            .modelAttribute("items", this.inventoryService.getInventory().doOnNext(System.out::println))
             .modelAttribute("cart", this.inventoryService.getCart("My Cart")
                 .defaultIfEmpty(new Cart("My Cart"))).build());
     }
@@ -52,7 +51,5 @@ public class HomeController {
         return this.inventoryService.deleteItem(id)
             .thenReturn("redirect:/");
     }
-
-
 
 }

@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Getter
 @Setter
@@ -16,7 +17,8 @@ import org.springframework.data.annotation.Id;
 @ToString
 @NoArgsConstructor
 public class Item {
-    private @Id String id;
+    @Id
+    private String id;
     private String name;
     private double price;
     //추가

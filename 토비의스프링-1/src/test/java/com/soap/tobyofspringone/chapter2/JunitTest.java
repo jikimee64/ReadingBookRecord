@@ -1,4 +1,4 @@
-package com.soap.tobyofspringone;
+package com.soap.tobyofspringone.chapter2;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;

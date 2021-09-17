@@ -1,7 +1,7 @@
-package com.soap.objects.object10.good;
+package com.soap.objects.chapter10.good;
 
-import com.soap.objects.object10.bad.Call;
-import com.soap.objects.object10.bad.Money;
+import com.soap.objects.chapter10.bad.Call;
+import com.soap.objects.chapter10.bad.Money;
 import java.util.ArrayList;
 import java.util.List;
 

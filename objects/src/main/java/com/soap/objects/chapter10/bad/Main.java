@@ -1,4 +1,4 @@
-package com.soap.objects.object10.bad;
+package com.soap.objects.chapter10.bad;
 
 import java.time.Duration;
 import java.time.LocalDateTime;

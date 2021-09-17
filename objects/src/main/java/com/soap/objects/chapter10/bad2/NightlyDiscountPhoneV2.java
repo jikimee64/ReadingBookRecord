@@ -1,8 +1,8 @@
-package com.soap.objects.object10.bad2;
+package com.soap.objects.chapter10.bad2;
 
-import com.soap.objects.object10.bad.Call;
-import com.soap.objects.object10.bad.Money;
-import com.soap.objects.object10.bad.Phone;
+import com.soap.objects.chapter10.bad.Call;
+import com.soap.objects.chapter10.bad.Money;
+import com.soap.objects.chapter10.bad.Phone;
 import java.time.Duration;
 
 public class NightlyDiscountPhoneV2 extends Phone {

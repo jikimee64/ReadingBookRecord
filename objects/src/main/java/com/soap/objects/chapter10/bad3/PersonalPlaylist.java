@@ -1,4 +1,4 @@
-package com.soap.objects.object10.bad3;
+package com.soap.objects.chapter10.bad3;
 
 public class PersonalPlaylist extends Playlist{
     public void remove(Song song){

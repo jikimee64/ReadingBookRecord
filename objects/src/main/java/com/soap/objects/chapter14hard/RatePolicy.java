@@ -1,7 +1,6 @@
-package com.soap.objects.chapter11.goodcomposition;
+package com.soap.objects.chapter14hard;
 
 import com.soap.objects.chapter10.bad.Money;
-import com.soap.objects.chapter14hard.Phone;
 
 //기본정책과 부가정책을 포괄
 public interface RatePolicy {

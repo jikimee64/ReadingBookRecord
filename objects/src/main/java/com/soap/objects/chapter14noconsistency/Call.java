@@ -1,8 +1,9 @@
-package com.soap.objects.chapter14hard;
+package com.soap.objects.chapter14noconsistency;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
+
 
 public class Call {
     private DateTimeInterval interval;

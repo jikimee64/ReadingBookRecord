@@ -1,12 +1,15 @@
-package com.soap.objects.chapter14hard;
+package com.soap.objects.chapter14noconsistency;
 
 import com.soap.objects.chapter10.bad.Money;
-import com.soap.objects.chapter14hard.BasicPolicy.BasicRatePolicy;
+import com.soap.objects.chapter14noconsistency.BasicPolicy.BasicRatePolicy;
 import java.time.Duration;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 통화 기간이 여러 날에 걸쳐있을 수 있음
+ */
 public class TimeOfDayDiscountPolicy extends BasicRatePolicy {
 
     private List<LocalTime> starts = new ArrayList();

@@ -1,8 +1,6 @@
-package com.soap.objects.appendixa.BasicPolicy;
+package com.soap.objects.chapter14noconsistency;
 
 import com.soap.objects.appendixa.EmptyCallException;
-import com.soap.objects.appendixa.RatePolicy;
-import com.soap.objects.chapter10.bad.Call;
 import com.soap.objects.chapter10.bad.Money;
 import java.util.List;
 

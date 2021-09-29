@@ -1,4 +1,4 @@
-package com.soap.objects.chapter14hard;
+package com.soap.objects.chapter14noconsistency;
 
 import com.soap.objects.chapter10.bad.Money;
 import java.util.ArrayList;
@@ -17,8 +17,12 @@ public class Phone {
         return calls;
     }
 
-    public Money calculateFee(){
-        return ratePolicy.calculateFee(this);
+    public Money calculateFee(List<Call> calls){
+        return ratePolicy.calculateFee(calls);
+    }
+
+    public void call(Call call){
+        calls.add(call);
     }
 
 }

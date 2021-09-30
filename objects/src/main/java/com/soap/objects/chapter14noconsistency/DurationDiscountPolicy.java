@@ -6,17 +6,17 @@ import java.util.List;
 
 public class DurationDiscountPolicy extends BasicRatePolicy {
 
-    private List<DurationDiscouutRule> rules = new ArrayList<>();
+    private List<DurationDiscountRule> rules = new ArrayList<>();
 
     public DurationDiscountPolicy(
-        List<DurationDiscouutRule> rules) {
+        List<DurationDiscountRule> rules) {
         this.rules = rules;
     }
 
     @Override
     protected Money calculateCallFee(Call call){
         Money result = Money.ZERO;
-        for(DurationDiscouutRule rule : rules){
+        for(DurationDiscountRule rule : rules){
             result.plus(rule.calculate(call));
         }
         return result;

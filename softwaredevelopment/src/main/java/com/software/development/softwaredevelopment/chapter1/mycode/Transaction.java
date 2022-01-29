@@ -11,5 +11,6 @@ import lombok.NoArgsConstructor;
 public class Transaction {
     private LocalDate localDate;
     private Integer price;
-    private String site;
+    private String item;
+
 }

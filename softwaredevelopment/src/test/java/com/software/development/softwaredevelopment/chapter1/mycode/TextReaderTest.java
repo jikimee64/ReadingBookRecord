@@ -55,7 +55,7 @@ class TextReaderTest {
         List<Transaction> transactions = textReader.generateTransactions(content);
 
         assertThat(transactions)
-            .extracting("localDate", "price", "site")
+            .extracting("localDate", "price", "item")
             .contains(
                 tuple(LocalDate.parse("30-01-2017", formatter),-100,"Deliveroo"),
                 tuple(LocalDate.parse("30-01-2017", formatter),-50,"Tesco"),

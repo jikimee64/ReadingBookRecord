@@ -25,7 +25,7 @@ class TextReaderTest {
     void readFile(){
         //given
         String resourcesPath = "chapter1/";
-        String fileName = "inout.txt";
+        String fileName = "inout.csv";
 
         //when
         List<String> content = textReader.readFile(resourcesPath, fileName);
@@ -47,7 +47,7 @@ class TextReaderTest {
     void generateTransactions(){
         //given
         String resourcesPath = "chapter1/";
-        String fileName = "inout.txt";
+        String fileName = "inout.csv";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         List<String> content = textReader.readFile(resourcesPath, fileName);
 

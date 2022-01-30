@@ -20,7 +20,7 @@ class TransactionsTest {
         //given
         TextReader textReader = new TextReader();
         String resourcesPath = "chapter1/";
-        String fileName = "inout.txt";
+        String fileName = "inout.csv";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         List<String> content = textReader.readFile(resourcesPath, fileName);
         List<Transaction> transactionList = textReader.generateTransactions(content);

@@ -21,7 +21,7 @@ public class Transactions {
     }
 
     public List<Transaction> getTransactions() {
-        return Collections.unmodifiableList(transactions);
+        return Collections.unmodifiableList(new ArrayList<>(transactions));
     }
 
     //돈을 가장 많이 소비하는 항목

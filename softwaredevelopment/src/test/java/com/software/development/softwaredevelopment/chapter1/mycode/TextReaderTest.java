@@ -13,11 +13,13 @@ import org.junit.jupiter.api.Test;
 
 class TextReaderTest {
 
-    TextReader textReader;
+    private FileReader fileReader;
+    private FileParser fileParser;
 
     @BeforeEach
     void init(){
-        textReader = new TextReader();
+        fileReader = new FileReader();
+        fileParser = new CsvParser();
     }
 
     @Test
@@ -28,7 +30,7 @@ class TextReaderTest {
         String fileName = "inout.csv";
 
         //when
-        List<String> content = textReader.readFile(resourcesPath, fileName);
+        List<String> content = fileReader.readFile(resourcesPath, fileName);
 
         //then
         assertAll(
@@ -49,10 +51,10 @@ class TextReaderTest {
         String resourcesPath = "chapter1/";
         String fileName = "inout.csv";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        List<String> content = textReader.readFile(resourcesPath, fileName);
+        List<String> content = fileReader.readFile(resourcesPath, fileName);
 
         //when
-        List<Transaction> transactions = textReader.generateTransactions(content);
+        List<Transaction> transactions = fileParser.parseLines(content);
 
         assertThat(transactions)
             .extracting("localDate", "price", "item")

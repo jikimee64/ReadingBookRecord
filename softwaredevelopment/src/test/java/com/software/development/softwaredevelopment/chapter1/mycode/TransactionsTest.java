@@ -1,9 +1,11 @@
 package com.software.development.softwaredevelopment.chapter1.mycode;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 import com.software.development.softwaredevelopment.chapter1.mycode.Transactions.Settlement;
+import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -18,12 +20,13 @@ class TransactionsTest {
     @BeforeEach
     void init() {
         //given
-        TextReader textReader = new TextReader();
+        FileReader fileReader = new FileReader();
+        FileParser fileParser = new CsvParser();
         String resourcesPath = "chapter1/";
         String fileName = "inout.csv";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        List<String> content = textReader.readFile(resourcesPath, fileName);
-        List<Transaction> transactionList = textReader.generateTransactions(content);
+        List<String> content = fileReader.readFile(resourcesPath, fileName);
+        List<Transaction> transactionList = fileParser.parseLines(content);
         transactions = new Transactions(transactionList);
     }
 
@@ -77,6 +80,52 @@ class TransactionsTest {
         assertThat(settlement.getSumIncome()).isEqualTo(11000);
         assertThat(settlement.getSumOutcome()).isEqualTo(4180);
 
+    }
+
+    @Test
+    @DisplayName("특정 날짜 범위에서 최대 거래 내역")
+    void maxTransacitonBetweenDate() {
+        //given
+        LocalDate startDate = LocalDate.of(2017,1,30);
+        LocalDate endDate = LocalDate.of(2017,1,30);
+
+        //when
+        Transaction transaction = transactions.maxTransacitonBetweenDate(startDate, endDate);
+
+        //then
+        assertThat(transaction.getLocalDate()).isEqualTo(LocalDate.of(2017,1,30));
+        assertThat(transaction.getPrice()).isEqualTo(-50);
+        assertThat(transaction.getItem()).isEqualTo("Tesco");
+    }
+
+    @Test
+    @DisplayName("특정 날짜 범위에서 최소 거래 내역")
+    void minTransacitonBetweenDate() {
+        //given
+        LocalDate startDate = LocalDate.of(2017,2,1);
+        LocalDate endDate = LocalDate.of(2017,2,5);
+
+        //when
+        Transaction transaction = transactions.minTransacitonBetweenDate(startDate, endDate);
+
+        //then
+        assertThat(transaction.getLocalDate()).isEqualTo(LocalDate.of(2017,2,2));
+        assertThat(transaction.getPrice()).isEqualTo(-4000);
+        assertThat(transaction.getItem()).isEqualTo("Rent");
+    }
+
+    @Test
+    @DisplayName("특정 날짜 범위에 거래내역이 존재하지 않을 경우")
+    void notExistTransactionBetweenDate() {
+        //given
+        LocalDate startDate = LocalDate.of(2017,3,1);
+        LocalDate endDate = LocalDate.of(2017,4,5);
+
+        //when && then
+        assertThatThrownBy(() -> transactions.minTransacitonBetweenDate(startDate, endDate))
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessageContaining("해당 날짜범위에 해당하는 거래내역이 없습니다.")
+            .hasStackTraceContaining("IllegalArgumentException");
     }
 
 }

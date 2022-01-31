@@ -12,5 +12,4 @@ public class Transaction {
     private LocalDate localDate;
     private Integer price;
     private String item;
-
 }

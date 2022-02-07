@@ -1,4 +1,4 @@
-package com.software.development.softwaredevelopment.chapter1.mycode;
+package com.software.development.softwaredevelopment.chapter2.mycode2;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.tuple;

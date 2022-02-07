@@ -1,4 +1,4 @@
-package com.software.development.softwaredevelopment.chapter1.bookcode.kiss;
+package com.software.development.softwaredevelopment.chapter2.bookcode2.kiss;
 
 import java.io.IOException;
 import java.nio.file.Files;

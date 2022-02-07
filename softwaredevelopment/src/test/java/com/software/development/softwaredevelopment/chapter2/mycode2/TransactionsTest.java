@@ -1,10 +1,10 @@
-package com.software.development.softwaredevelopment.chapter1.mycode;
+package com.software.development.softwaredevelopment.chapter2.mycode2;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
-import com.software.development.softwaredevelopment.chapter1.mycode.Transactions.Settlement;
+import com.software.development.softwaredevelopment.chapter2.mycode2.Transactions.Settlement;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;

@@ -1,6 +1,6 @@
-package com.software.development.softwaredevelopment.chapter1.bookcode.srp;
+package com.software.development.softwaredevelopment.chapter2.bookcode2.srp;
 
-import com.software.development.softwaredevelopment.chapter1.bookcode.dto.BankTransaction;
+import com.software.development.softwaredevelopment.chapter2.bookcode2.dto.BankTransaction;
 import java.time.Month;
 import java.util.List;
 

@@ -1,9 +1,12 @@
-package com.software.development.softwaredevelopment.chapter1.mycode;
+package com.software.development.softwaredevelopment.chapter2.mycode2;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.software.development.softwaredevelopment.chapter3.bookcode3.BankTransactionV3;
+import com.software.development.softwaredevelopment.chapter3.bookcode3.after.BankStatementProcessorA;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,16 +30,28 @@ class HistogramTest {
     }
 
     @Test
-    void groupingByItem(){
+    void groupingByItem() {
         StringBuilder sb = histogram.groupingByItem();
         System.out.println(sb.toString());
     }
 
     @Test
-    void groupingByMonth(){
+    void groupingByMonth() {
         Map<Month, List<Transaction>> collect = histogram.groupingByMonth();
         assertThat(collect.get(Month.JANUARY).size()).isEqualTo(2);
         assertThat(collect.get(Month.FEBRUARY).size()).isEqualTo(5);
     }
+
+    @Test
+    void test() {
+        List<BankTransactionV3> bankTransactions = new ArrayList<>();
+        BankStatementProcessorA bankStatementProcessorA = new BankStatementProcessorA(
+            bankTransactions);
+        final List<BankTransactionV3> transactionV3 =
+            bankStatementProcessorA.findTransactions(
+                bankTransaction -> bankTransaction.getDate().getMonth() == Month.FEBRUARY
+                    && bankTransaction.getAmount() >= 100);
+    }
+
 
 }

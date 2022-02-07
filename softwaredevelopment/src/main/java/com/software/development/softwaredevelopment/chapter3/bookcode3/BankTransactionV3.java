@@ -1,15 +1,15 @@
-package com.software.development.softwaredevelopment.chapter1.bookcode.dto;
+package com.software.development.softwaredevelopment.chapter3.bookcode3;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class BankTransaction {
+public class BankTransactionV3 {
     private final LocalDate date;
     private final double amount;
     private final String description;
 
 
-    public BankTransaction(final LocalDate date, final double amount, final String description) {
+    public BankTransactionV3(final LocalDate date, final double amount, final String description) {
         this.date = date;
         this.amount = amount;
         this.description = description;
@@ -40,7 +40,7 @@ public class BankTransaction {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        BankTransaction that = (BankTransaction) o;
+        BankTransactionV3 that = (BankTransactionV3) o;
         return Double.compare(that.amount, amount) == 0 &&
             date.equals(that.date) &&
             description.equals(that.description);

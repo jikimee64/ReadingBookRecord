@@ -1,4 +1,4 @@
-package com.software.development.softwaredevelopment.chapter1.mycode;
+package com.software.development.softwaredevelopment.chapter2.mycode2;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

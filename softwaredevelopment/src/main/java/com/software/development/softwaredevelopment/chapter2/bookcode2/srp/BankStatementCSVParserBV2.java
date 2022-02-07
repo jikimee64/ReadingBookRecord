@@ -1,12 +1,12 @@
-package com.software.development.softwaredevelopment.chapter1.bookcode.srp;
+package com.software.development.softwaredevelopment.chapter2.bookcode2.srp;
 
-import com.software.development.softwaredevelopment.chapter1.bookcode.dto.BankTransaction;
+import com.software.development.softwaredevelopment.chapter2.bookcode2.dto.BankTransaction;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BankStatementCSVParser {
+public class BankStatementCSVParserBV2 {
 
     private static final DateTimeFormatter DATE_PATTERN
         = DateTimeFormatter.ofPattern("dd-MM-yyyy");

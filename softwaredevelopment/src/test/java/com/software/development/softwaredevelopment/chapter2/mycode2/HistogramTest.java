@@ -21,7 +21,7 @@ class HistogramTest {
         //given
         FileReader fileReader = new FileReader();
         FileParser fileParser = new CsvParser();
-        String resourcesPath = "chapter1/";
+        String resourcesPath = "chapter2/";
         String fileName = "inout.csv";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         List<String> content = fileReader.readFile(resourcesPath, fileName);

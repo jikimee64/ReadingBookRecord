@@ -22,9 +22,4 @@ public class Notification {
         return this.errors;
     }
 
-    public Notification validate(){
-        final Notification notification = new Notification();
-        if(this.de)
-    }
-
 }

@@ -26,7 +26,7 @@ class TextReaderTest {
     @DisplayName("한줄씩 String으로 읽는다")
     void readFile(){
         //given
-        String resourcesPath = "chapter1/";
+        String resourcesPath = "chapter2/";
         String fileName = "inout.csv";
 
         //when
@@ -48,7 +48,7 @@ class TextReaderTest {
     @DisplayName("String으로 읽은걸 Transaction 객체로 만든다")
     void generateTransactions(){
         //given
-        String resourcesPath = "chapter1/";
+        String resourcesPath = "chapter2/";
         String fileName = "inout.csv";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         List<String> content = fileReader.readFile(resourcesPath, fileName);

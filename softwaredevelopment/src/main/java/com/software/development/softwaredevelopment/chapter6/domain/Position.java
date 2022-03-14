@@ -1,5 +1,7 @@
 package com.software.development.softwaredevelopment.chapter6.domain;
 
+import java.util.Calendar;
+
 // Value object representing the position in the stream
 // tag::Position[]
 public class Position {
@@ -12,6 +14,8 @@ public class Position {
 
     public Position(final int value) {
         this.value = value;
+
+        Calendar.getInstance();
     }
 
     public int getValue() {
